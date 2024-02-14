@@ -1,38 +1,215 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f9798c; 
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+p {
+  font-size: 24px;
   text-align: center;
+  margin-top: 10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: #333;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  color: #DC143C;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.otherButton {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+/* this article is used to center the component within the viewport */
+article {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  width: 100%;
+}
+/* MESSAGES */
+.message, .sincerely {
+  font-size: 22px;
+}
+.message {
+  margin-top: 8rem; 
+  margin-left: 1rem;
+  text-align: initial;
+}
+.sincerely {
+  margin-top: 2rem;
+  text-align: center;
+}
+.message-2 {
+  display: none;
+}
+.valentines-message {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 14px;
+  text-align: initial;
+  line-height: 2;
+}
+/* ENVELOPE */
+
+/* envelope-container contains all elements of the featured component (you can think of it like your canvas area) */
+.envelope-container {
+  position: relative; /* needed to allow for positioning some elements as absolute within the container */
+  height: 500px;
+  width: 350px;
+}
+.envelope-base {
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0,0,0,.3), 0px 8px 10px rgba(0,0,0,.3);
+  z-index: 1;
+}
+.envelope-flap {
+  position: absolute;
+  bottom: 50px;
+  height: 300px;
+  width: 100%;
+  z-index: 2;
+}
+.inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+.inner-polygon {
+  fill: white; 
+  stroke: gray; 
+  stroke-width: 1;
+}
+.inner-open {
+  fill: lightgray;
+}
+.outer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+}
+.outer-polygon {
+  fill: white; 
+  stroke: gray; 
+  stroke-width: 1;
+}
+.outer-open {
+  opacity: 1;
+}
+/* HEART BUTTON */
+.heart-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 145px;
+  color: #DC143C;
+  font-size: 60px;
+  z-index: 3;
+}
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: gray;
+  background: #FFB6C1;;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,.2);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: none;
+  z-index: 4;
+}
+.close-btn:hover {
   color: white;
+  background: #DC143C;
+  box-shadow: 0px 2px 4px rgba(0,0,0,.1);
 }
-
-.App-link {
-  color: #61dafb;
+.yesBtn, .noBtn {
+  display: none;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.picture {
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: 7.5rem;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 100;
+}
+/*
+.picture .imageChosen {
+  margin-top: -225px;
+  margin-left: -375px;
+  margin-top: -185px;
+  margin-left: -167px; 
+  transform: scale(.25);   
+  border-radius: 50%; 
+}
+*/
+.imageChosen {
+  display: none;
+  height: 100px;
+  margin-left: -22px;
+  margin-top:-.5rem;
+  border-radius: 50%;
+}
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  background-color: white;
+  height: 500px;
+  border: black 2px solid; 
+  border-radius: 5px;
+  z-index: 10;
+  margin-top: -7rem;
+}
+/* REUSABLE TOGGLE CLASSES */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+@media (max-width: 800px) { 
+  .heart-btn {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12rem;
+    left: 0; 
   }
 }
